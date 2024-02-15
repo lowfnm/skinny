@@ -10,4 +10,12 @@
   h2 {
     @apply text-lg;
   }
+
+  .button-primary {
+    @apply cursor-pointer flex items-center justify-center rounded bg-[#4e00ff] px-8 py-4 font-medium text-white hover:bg-[#1a0053];
+  }
+
+  .row {
+    @apply flex items-center justify-between pt-3.5;
+  }
 }

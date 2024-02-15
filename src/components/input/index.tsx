@@ -33,7 +33,7 @@ export const Input: FC<InputProps> = ({
         }
       />
       {errorMessages?.map((errorMessage, index) => (
-        <span key={index} className="mt-0.5 text-red-500">
+        <span key={index} className="text-error mt-0.5">
           {errorMessage}
         </span>
       ))}

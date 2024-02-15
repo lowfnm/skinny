@@ -1,3 +1,3 @@
-import { shippingFormSchema } from '@/validation/shippingSchema';
+import { checkoutSchema } from '@/validation/checkoutSchema';
 
-export { shippingFormSchema };
+export { checkoutSchema };

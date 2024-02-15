@@ -1,11 +1,11 @@
 import { RoutesEnum } from '@/enums';
 
-export const breadcrumbs = [
-  { label: 'Shipping', link: RoutesEnum.SHIPPING },
+export const breadcrumbLinks = [
+  { label: 'Shipping', link: RoutesEnum.CHECKOUT },
   { label: 'Payment', link: RoutesEnum.CHECKOUT },
 ];
 
-export const policy = [
+export const footerLinks = [
   {
     label: 'Refund Policy',
     link: '#',

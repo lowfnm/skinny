@@ -1,5 +1,6 @@
 export type ShippingFormType = {
   email: string;
+  newsLetter?: boolean;
   country: string;
   firstName?: string;
   lastName: string;
@@ -9,4 +10,8 @@ export type ShippingFormType = {
   state: string;
   zipCode: string;
   phone: string;
+  cardNumber?: string;
+  cardHolderName?: string;
+  cardExpiration?: string;
+  cvv?: string;
 };
