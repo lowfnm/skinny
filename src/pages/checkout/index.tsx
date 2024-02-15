@@ -58,8 +58,6 @@ const CheckoutPage = () => {
 
   const { setValues, handleSubmit } = formik;
 
-  console.warn(formik.errors);
-
   useEffect(() => {
     const savedFormData = localStorage.getItem(LocalStorage.CHECKOUT_FORM);
     if (savedFormData) {
