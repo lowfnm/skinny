@@ -2,8 +2,6 @@ import { FC, InputHTMLAttributes } from 'react';
 
 import cn from 'classnames';
 
-import styles from './Input.module.css';
-
 export type InputProps = {
   validated?: boolean;
   label?: string;
@@ -14,34 +12,30 @@ export type InputProps = {
 export const Input: FC<InputProps> = ({
   label,
   validated,
-  className: wrapperClassName,
+  className,
   errorMessages: errorMessagesProp,
   ...baseComponentProps
 }) => {
-  const { disabled, type, id } = baseComponentProps;
+  const { type, id } = baseComponentProps;
 
   const errorMessages = Array.isArray(errorMessagesProp)
     ? errorMessagesProp
     : [errorMessagesProp].filter(Boolean);
 
-  const isError = !!errorMessages?.length;
-
   return (
-    <div
-      className={cn(
-        styles.customInput,
-        {
-          [styles.disabled]: disabled,
-          [styles.error]: isError,
-          [styles.validated]: validated,
-        },
-        wrapperClassName,
-      )}
-    >
+    <div className={cn(`flex h-[70px] w-full flex-col text-sm ${className}`)}>
       <label htmlFor={id}>{label}</label>
-      <input {...baseComponentProps} type={type} />
+      <input
+        {...baseComponentProps}
+        type={type}
+        className={
+          'rounded border border-[#a9a9a9] px-5 py-3.5 focus:outline-black focus-visible:border-[#4e00ff]'
+        }
+      />
       {errorMessages?.map((errorMessage, index) => (
-        <span key={index}>{errorMessage}</span>
+        <span key={index} className="mt-0.5 text-red-500">
+          {errorMessage}
+        </span>
       ))}
     </div>
   );

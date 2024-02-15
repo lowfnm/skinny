@@ -1,4 +1,4 @@
 export const RoutesEnum = {
-  DASHBOARD: '/',
+  SHIPPING: '/',
   CHECKOUT: '/checkout',
 };

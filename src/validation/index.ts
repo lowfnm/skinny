@@ -1,3 +1,3 @@
-import { shippingFormSchema } from '@/validation/shippingSchema.ts';
+import { shippingFormSchema } from '@/validation/shippingSchema';
 
 export { shippingFormSchema };

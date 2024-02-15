@@ -1,3 +1,3 @@
-import { ShippingFormType } from '@/type/shippingForm.ts';
+import { ShippingFormType } from './shippingForm';
 
 export type { ShippingFormType };

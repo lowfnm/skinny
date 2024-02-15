@@ -1,16 +1,17 @@
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { RoutesEnum } from '@/enums/router.ts';
-import { Route } from './components/Route/Route.tsx';
+import { Route } from './components';
 
-const DashboardPage = lazy(() => import('src/pages/shipping'));
+import { RoutesEnum } from '@/enums';
+
+const ShippingPage = lazy(() => import('@/pages/shipping'));
 const CheckoutPage = lazy(() => import('@/pages/checkout'));
 
 export const router = createBrowserRouter([
   {
-    path: RoutesEnum.DASHBOARD,
-    Component: () => <Route component={DashboardPage} />,
+    path: RoutesEnum.SHIPPING,
+    Component: () => <Route component={ShippingPage} />,
   },
   {
     path: RoutesEnum.CHECKOUT,

@@ -1,0 +1,42 @@
+name: Lint & Build
+
+on:
+  push:
+    branches: ['feature/*', 'fix/*']
+
+jobs:
+  lint:
+    name: Eslint check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Use Node.js 18.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.15.0
+
+      - name: Install root dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run lint
+        run: yarn lint
+
+  build:
+    name: Build skinny
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Use Node.js 18.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.15.0
+
+      - name: Install root dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run build
+        run: yarn build

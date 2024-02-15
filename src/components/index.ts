@@ -1,4 +1,6 @@
-import { Breadcrumbs } from '@/components/breadcrumbs';
-import { Input } from '@/components/input';
+import { Breadcrumbs } from './breadcrumbs';
+import { Button } from './button';
+import { Input } from './input';
+import { Policy } from './policy';
 
-export { Breadcrumbs, Input };
+export { Breadcrumbs, Button, Input, Policy };
