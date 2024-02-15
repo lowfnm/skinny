@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import { FormikProps } from 'formik';
-import { isValid } from 'zod';
 
 import { Button, Checkbox, Input } from '@/components';
 import { ShippingFormType } from '@/type';
@@ -12,8 +11,15 @@ type UserInfoProps = {
 };
 
 export const UserInfo: FC<UserInfoProps> = ({ formik, nextStep }) => {
-  const { values, errors, touched, handleBlur, handleChange, isSubmitting } =
-    formik;
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    isSubmitting,
+    isValid,
+  } = formik;
 
   return (
     <>
@@ -126,6 +132,7 @@ export const UserInfo: FC<UserInfoProps> = ({ formik, nextStep }) => {
         className="mt-2.5"
       />
       <Button
+        type="button"
         onClick={nextStep}
         disabled={isSubmitting || !isValid}
         className="ml-auto mt-4 uppercase"

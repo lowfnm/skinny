@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import { BankDetails, UserInfo } from './components';
 import { useFormik } from 'formik';
+import { NumberParam, useQueryParam } from 'use-query-params';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 
 import logo from '@/assets/images/logo-blue.png';
@@ -26,14 +27,20 @@ import { ShippingFormType } from '@/type';
 import { checkoutSchema } from '@/validation';
 
 const CheckoutPage = () => {
-  const [step, setStep] = useState(1);
+  const [step = 0, setStep] = useQueryParam('step', NumberParam);
+
+  useEffect(() => {
+    if (!step) {
+      setStep(1);
+    }
+  }, [setStep, step]);
 
   const nextStep = () => {
-    setStep((prevStep) => prevStep + 1);
+    setStep((prevStep) => Number(prevStep) + 1);
   };
 
   const prevStep = () => {
-    setStep((prevStep) => prevStep - 1);
+    setStep((prevStep) => Number(prevStep) - 1);
   };
 
   const onSubmit = (values: ShippingFormType) => {
@@ -46,9 +53,12 @@ const CheckoutPage = () => {
     initialValues: shippingInitialValues,
     validationSchema: toFormikValidationSchema(checkoutSchema),
     onSubmit,
+    validateOnMount: true,
   });
 
   const { setValues, handleSubmit } = formik;
+
+  console.warn(formik.errors);
 
   useEffect(() => {
     const savedFormData = localStorage.getItem(LocalStorage.CHECKOUT_FORM);
